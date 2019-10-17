@@ -11,14 +11,18 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 Route::get('/master', function (){
 	return view('master');
 });
-*/
+
+Route::get('/jadwal', function (){
+	return view('jadwal');
+});
+
 
 Route::get('/', 'BlogController@index');
 Route::get('/posts/{post}', 'BlogController@post');
