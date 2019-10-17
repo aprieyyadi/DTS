@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('index');
 });
 
 Route::get('/master', function (){
 	return view('master');
 });
+*/
+
+Route::get('/','BlogController@index');
+
+Route::get('/master','BlogController@master');
+
