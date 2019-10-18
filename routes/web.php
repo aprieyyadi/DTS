@@ -15,21 +15,21 @@
 //     return view('index');
 // });
 
-Route::get('/master', function (){
-	return view('master');
-});
+// Route::get('/master', function (){
+// 	return view('master');
+// });
 
-Route::get('/jadwal', function (){
-	return view('jadwal');
-});
+// Route::get('/jadwal', function (){
+// 	return view('jadwal');
+// });
 
-Route::get('/daftar', function (){
-	return view('daftar');
-});
+// Route::get('/daftar', function (){
+// 	return view('daftar');
+// });
 
-Route::get('/masuk', function (){
-	return view('masuk');
-});
+// Route::get('/masuk', function (){
+// 	return view('masuk');
+// });
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('posts','PostController@index')->name('post.index');
