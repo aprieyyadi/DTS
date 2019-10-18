@@ -23,6 +23,14 @@ Route::get('/jadwal', function (){
 	return view('jadwal');
 });
 
+Route::get('/daftar', function (){
+	return view('daftar');
+});
+
+Route::get('/masuk', function (){
+	return view('masuk');
+});
+
 
 Route::get('/', 'BlogController@index');
 Route::get('/posts/{post}', 'BlogController@post');

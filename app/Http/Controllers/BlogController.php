@@ -15,4 +15,9 @@ class BlogController extends Controller
    {
     return view('master');
    }
+
+   public function daftar()
+   {
+   	return view('daftar');
+   }
 }
