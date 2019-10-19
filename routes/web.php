@@ -34,6 +34,12 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about', 'AboutController@index')->name('about');
 Route::get('posts','PostController@index')->name('post.index');
+
+Route::get('biodata', function(){
+    return view('biodata');
+});
+
+
 Route::get('post/{slug}/','PostController@details')->name('post.details');
 
 

@@ -46,6 +46,12 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{route('about')}}">About</a>
                 </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="biodata">DTS Team</a>
+                </li>
+
+
  
                  @guest
                 <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
