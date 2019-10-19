@@ -4,10 +4,9 @@
           <div class="container">
             <div class="row">
               <div class="col-9 social">
-                <a href="#"><span class="fa fa-twitter"></span></a>
-                <a href="#"><span class="fa fa-facebook"></span></a>
-                <a href="#"><span class="fa fa-instagram"></span></a>
-                <a href="#"><span class="fa fa-youtube-play"></span></a>
+                   <a href="https://twitter.com/dts_kominfo"><span class="fa fa-twitter"></span> Twitter</a>
+                     <a href="https://www.facebook.com/digitalent.kominfo/"><span class="fa fa-facebook"></span> Facebook</a>
+                     <a href="https://www.instagram.com/digitalent.kominfo/?hl=id"><span class="fa fa-instagram"></span> Instagram</a>
               </div>
               <div class="col-3 search-top">
                 <!-- <a href="#"><span class="fa fa-search"></span></a> -->
@@ -45,11 +44,9 @@
                 </li>
       
                 <li class="nav-item">
-                  <a class="nav-link" href="#">About</a>
+                  <a class="nav-link" href="{{route('about')}}">About</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a>
-                </li>
+ 
                  @guest
                 <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>

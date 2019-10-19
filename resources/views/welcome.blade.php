@@ -19,8 +19,8 @@
                       <div class="post-meta">
                         
                         <span class="author mr-2"><a href="{{ route('author.profile',$post->user->username) }}" title=""><img src="{{ url($post->user->image) }}" alt="Colorlib"> {{$post->user->username}}</span>&bullet;</a>
-                        <span class="mr-2">March 15, 2018 </span> &bullet;
-                        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                        <span class="mr-2">{{$post->created_at}}</span> &bullet;
+                        <span class="ml-2"><span class="fa fa-comments"></span> {{ $post->comments->count() }}</span>
                         
                       </div>
                   <a href="{{ route('category.posts',$category->slug) }}" title="">
@@ -75,17 +75,33 @@
         @forelse($posts as $post)
                 <div class="col-md-6">
                   <a href="{{ route('post.details',$post->slug) }}" class="blog-entry element-animate" data-animate-effect="fadeIn">
-                    <img src="{{ url($post->image) }}" alt="Image placeholder">   </a>
-                    <h2>{{$post->title}}</h2>
+                    <img src="{{ url($post->image) }}" alt="Image placeholder">  
+                    <h2>{{$post->title}}</h2> </a>
                     <div class="blog-content-body">
                       <div class="post-meta">
                         <a href="{{ route('author.profile',$post->user->username) }}" title=""><span class="author mr-2"><img src="{{ url($post->user->image) }}" alt="Colorlib"> {{$post->user->username}}</span>&bullet;</a>
 
                         <span class="mr-2">{{$post->created_at}}</span> &bullet;
                         <br><hr>
-                         <span class="ml-2"><span class="fa fa-heart"></span>{{ $post->favorite_to_users->count() }}</span>
-                         <span class="ml-2"><span class="fa fa-eye"></span>{{ $post->view_count }}</span>
-                        <span class="ml-2"><span class="fa fa-comments"></span>{{ $post->comments->count() }}</span>
+                    
+                                            @guest
+                                                <a href="javascript:void(0);" onclick="toastr.info('To add favorite list. You need to login first.','Info',{
+                                                    closeButton: true,
+                                                    progressBar: true,
+                                                })"><span class="ml-2"><span class="fa fa-heart"></span>{{ $post->favorite_to_users->count() }}</span></a>
+                                            @else
+                                                <a href="javascript:void(0);" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit();"
+                                                   class="{{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
+
+                                                <form id="favorite-form-{{ $post->id }}" method="POST" action="{{ route('post.favorite',$post->id) }}" style="display: none;">
+                                                    @csrf
+                                                </form>
+                                            @endguest
+
+                                            <a href="#"><i class="ion-chatbubble"></i>{{ $post->comments->count() }}</a>
+                                   
+                                            <a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a>
+                                  
                       </div>
                      
                     </div>

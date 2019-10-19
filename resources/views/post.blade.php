@@ -4,181 +4,88 @@
 {{ $post->title }}
 @endsection
 
-@push('css')
-    <link href="{{ asset('assets/frontend/css/single-post/styles.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/frontend/css/single-post/responsive.css') }}" rel="stylesheet">
-    <style>
-        .header-bg{
-            height: 400px;
-            width: 100%;
-            background-image: url({{ url($post->image) }});
-            background-size: cover;
-        }
-        .favorite_posts{
-            color: blue;
-        }
-    </style>
-@endpush
 
 @section('content')
-    <div class="header-bg">
-    </div><!-- slider -->
+  
+    <section class="site-section py-lg">
+      <div class="container">
+        
+        <div class="row blog-entries element-animate">
 
-    <section class="post-area section">
-        <div class="container">
+          <div class="col-md-12 col-lg-8 main-content">
+            <img src="{{ url($post->image) }}" alt="Image" class="img-fluid mb-5">
+             <div class="post-meta">
+                        <span class="author mr-2"><img src="{{url($post->user->image)}}" alt="Colorlib" class="mr-2">{{$post->user->name}}</span>&bullet;
+                        <span class="mr-2">{{$post->created_at}} </span> &bullet;
+                      
+                      </div>
+            <h1 class="mb-4">{{$post->title}}</h1>
+            @foreach($post->tags as $tag)
+            <a class="category mb-5" href="{{ route('tag.posts',$tag->slug) }}">{{$tag->name}}</a>
 
-            <div class="row">
+            @endforeach
+           
+            <div class="post-content-body text-justify">
+              <p>  {!! html_entity_decode($post->body) !!}</p>
+     
+            </div>
 
-                <div class="col-lg-8 col-md-12 no-right-padding">
+            
+            <div class="pt-5">
+              <p>Categories:  
 
-                    <div class="main-post">
-
-                        <div class="blog-post-inner">
-
-                            <div class="post-info">
-
-                                <div class="left-area">
-                                    <a class="avatar" href="#"><img src="{{ url($post->user->image) }}" alt="Profile Image"></a>
-                                </div>
-
-                                <div class="middle-area">
-                                    <a class="name" href="#"><b>{{ $post->user->name }}</b></a>
-                                    <h6 class="date">on {{ $post->created_at->diffForHumans() }}</h6>
-                                </div>
-
-                            </div><!-- post-info -->
-
-                            <h3 class="title"><a href="#"><b>{{ $post->title }}</b></a></h3>
-
-                            <div class="para">
-                                {!! html_entity_decode($post->body) !!}
-                            </div>
-
-                            <ul class="tags">
-                                @foreach($post->tags as $tag)
-                                    <li><a href="{{ route('tag.posts',$tag->slug) }}">{{ $tag->name }}</a></li>
-                                @endforeach
-                            </ul>
-                        </div><!-- blog-post-inner -->
-
-                        <div class="post-icons-area">
-                            <ul class="post-icons">
-                                <li>
-                                    @guest
-                                        <a href="javascript:void(0);" onclick="toastr.info('To add favorite list. You need to login first.','Info',{
-                                                    closeButton: true,
-                                                    progressBar: true,
-                                                })"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
-                                    @else
-                                        <a href="javascript:void(0);" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit();"
-                                           class="{{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
-
-                                        <form id="favorite-form-{{ $post->id }}" method="POST" action="{{ route('post.favorite',$post->id) }}" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    @endguest
-
-                                </li>
-                                <li><a href="#"><i class="ion-chatbubble"></i>{{ $post->comments->count() }}</a></li>
-                                <li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
-                            </ul>
-
-                            <ul class="icons">
-                                <li>SHARE : </li>
-                                <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                                <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                                <li><a href="#"><i class="ion-social-pinterest"></i></a></li>
-                            </ul>
-                        </div>
+                @foreach($post->categories as $category)
 
 
-                    </div><!-- main-post -->
-                </div><!-- col-lg-8 col-md-12 -->
 
-                <div class="col-lg-4 col-md-12 no-left-padding">
+                <a href="{{ route('category.posts',$category->slug) }}">{{$category->name}}</a>
 
-                    <div class="single-post info-area">
-
-                        <div class="sidebar-area about-area">
-                            <h4 class="title"><b>ABOUT AUTHOR</b></h4>
-                            <p>{{ $post->user->about }}</p>
-                        </div>
-
-                        <div class="tag-area">
-
-                            <h4 class="title"><b>CATEGORIES</b></h4>
-                            <ul>
-                                @foreach($post->categories as $category)
-                                    <li><a href="{{ route('category.posts',$category->slug) }}">{{ $category->name }}</a></li>
-                                @endforeach
-                            </ul>
-
-                        </div><!-- subscribe-area -->
-
-                    </div><!-- info-area -->
-
-                </div><!-- col-lg-4 col-md-12 -->
-
-            </div><!-- row -->
-
-        </div><!-- container -->
-    </section><!-- post-area -->
-
-
-    <section class="recomended-area section">
-        <div class="container">
-            <div class="row">
-                @foreach($randomposts as $randompost)
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card h-100">
-                            <div class="single-post post-style-1">
-
-                                <div class="blog-image"><img src="{{ url($randompost->image) }}" alt="{{ $randompost->title }}"></div>
-
-                                <a class="avatar" href="#"><img src="{{ url($randompost->user->image) }}" alt="Profile Image"></a>
-
-                                <div class="blog-info">
-
-                                    <h4 class="title"><a href="{{ route('post.details',$randompost->slug) }}"><b>{{ $randompost->title }}</b></a></h4>
-
-                                    <ul class="post-footer">
-
-                                        <li>
-                                            @guest
-                                                <a href="javascript:void(0);" onclick="toastr.info('To add favorite list. You need to login first.','Info',{
-                                                    closeButton: true,
-                                                    progressBar: true,
-                                                })"><i class="ion-heart"></i>{{ $randompost->favorite_to_users->count() }}</a>
-                                            @else
-                                                <a href="javascript:void(0);" onclick="document.getElementById('favorite-form-{{ $randompost->id }}').submit();"
-                                                   class="{{ !Auth::user()->favorite_posts->where('pivot.post_id',$randompost->id)->count()  == 0 ? 'favorite_posts' : ''}}"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
-
-                                                <form id="favorite-form-{{ $randompost->id }}" method="POST" action="{{ route('post.favorite',$randompost->id) }}" style="display: none;">
-                                                    @csrf
-                                                </form>
-                                            @endguest
-
-                                        </li>
-                                        <li><a href="#"><i class="ion-chatbubble"></i>{{ $randompost->comments->count() }}</a></li>
-                                        <li><a href="#"><i class="ion-eye"></i>{{ $randompost->view_count }}</a></li>
-                                    </ul>
-
-                                </div><!-- blog-info -->
-                            </div><!-- single-post -->
-                        </div><!-- card -->
-                    </div><!-- col-lg-4 col-md-6 -->
                 @endforeach
-            </div><!-- row -->
 
-        </div><!-- container -->
-    </section>
 
-    <section class="comment-section">
-        <div class="container">
-            <h4><b>POST COMMENT</b></h4>
-            <div class="row">
+                 Tags: 
 
-                <div class="col-lg-8 col-md-12">
+
+                 @foreach($post->tags as $tag)
+
+
+                 <a href="{{ route('tag.posts',$tag->slug) }}">{{$tag->name}}</a>
+
+                 @endforeach
+            </div>
+
+
+            <div class="pt-5">
+              <h3 class="mb-5">{{ $post->comments->count() }} Comments</h3>
+              <ul class="comment-list">
+            @if($post->comments->count() > 0)
+              @foreach($post->comments as $comment)
+                <li class="comment">
+                  <div class="vcard">
+                    <img src="{{ url($comment->user->image) }}" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>{{ $comment->user->name }}</h3>
+                    <div class="meta">>on {{ $comment->created_at->diffForHumans()}}</div>
+                    <p>{{ $comment->comment }}</p>
+                  
+                  </div>
+                </li>
+                        @endforeach
+                    @else
+                           <div class="commnets-area ">
+
+                        <div class="comment">
+                            <p>Belum ada komentar ...</p>
+                    </div>
+                    </div>
+
+                    @endif
+
+             
+              </ul>
+              <!-- END comment-list -->
+              
                     <div class="comment-form">
                         @guest
                             <p>For post a new comment. You need to login first. <a href="{{ route('login') }}">Login</a></p>
@@ -198,49 +105,119 @@
                             </form>
                         @endguest
                     </div><!-- comment-form -->
+            </div>
 
-                    <h4><b>COMMENTS({{ $post->comments()->count() }})</b></h4>
-                    @if($post->comments->count() > 0)
-                        @foreach($post->comments as $comment)
-                            <div class="commnets-area ">
+          </div>
 
-                                <div class="comment">
+          <!-- END main-content -->
 
-                                    <div class="post-info">
+          <div class="col-md-12 col-lg-4 sidebar">
+            <div class="sidebar-box search-form-wrap">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <span class="icon fa fa-search"></span>
+                  <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+                </div>
+              </form>
+            </div>
+            <!-- END sidebar-box -->
+            <div class="sidebar-box">
+              <div class="bio text-center">
+                <img src="{{url($post->user->image)}}" alt="Image Placeholder" class="img-fluid">
+                <div class="bio-body">
+                  <h2>{{$post->user->name}}</h2>
+                  <p></p>
+                  <p><a href="{{ route('author.profile',$post->user->username) }}" class="btn btn-primary btn-sm rounded">Read my bio</a></p>
+                  <p class="social">
+                    <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- END sidebar-box -->  
+                      <!-- END sidebar-box -->  
+              <div class="sidebar-box">
+                <h3 class="heading">Popular Posts</h3>
+                <div class="post-entry-sidebar">
+                  <ul>
+                           @forelse($blog as $blogs)
+                     <li>
+                      <a href="{{ route('post.details',$post->slug) }}">
+                        <img src="{{ url($blogs->image) }}" alt="Image placeholder" class="mr-4">
+                        <div class="text">
+                          <h4>{{ $blogs->title }}</h4>
+                          <div class="post-meta">
+                            <span class="mr-2">{{$blogs->created_at}} </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
 
-                                        <div class="left-area">
-                                            <a class="avatar" href="#"><img src="{{ url($comment->user->image) }}" alt="Profile Image"></a>
-                                        </div>
+             
 
-                                        <div class="middle-area">
-                                            <a class="name" href="#"><b>{{ $comment->user->name }}</b></a>
-                                            <h6 class="date">on {{ $comment->created_at->diffForHumans()}}</h6>
-                                        </div>
+                    @empty
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card h-100">
+                            <div class="single-post post-style-1 p-2">
+                               <strong>Belum ada berita Tersedia</strong>
+                            </div><!-- single-post -->
+                        </div><!-- card -->
+                    </div><!-- col-lg-4 col-md-6 -->
+                @endforelse
+                  </ul>
+                </div>
+              </div>
 
-                                    </div><!-- post-info -->
+              <!-- END sidebar-box -->
 
-                                    <p>{{ $comment->comment }}</p>
+              <div class="sidebar-box">
+                <h3 class="heading">Categories</h3>
+                <ul class="categories">
 
-                                </div>
+                @forelse($categories as $category)
+                  <li><a href="{{route('category.posts',$category->slug)}}">{{ $category->name }}<span><?= count($categories) ?></span></a></li>
+                                  @empty
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card h-100">
+                            <div class="single-post post-style-1 p-2">
+                               <strong>Belum ada berita Tersedia</strong>
+                            </div><!-- single-post -->
+                        </div><!-- card -->
+                    </div><!-- col-lg-4 col-md-6 -->
+                @endforelse
+            
+          
+                </ul>
+              </div>
+              <!-- END sidebar-box -->
 
-                            </div><!-- commnets-area -->
-                        @endforeach
-                    @else
+              <div class="sidebar-box">
+                <h3 class="heading">Tags</h3>
+                <ul class="tags">
+                   @forelse($tags as $tag)
 
-                    <div class="commnets-area ">
+                  <li><a href="{{route('tag.posts',$tag->slug)}}">{{ $tag->name }}</a></li>
+                     @empty
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card h-100">
+                            <div class="single-post post-style-1 p-2">
+                               <strong>Belum ada berita Tersedia</strong>
+                            </div><!-- single-post -->
+                        </div><!-- card -->
+                    </div><!-- col-lg-4 col-md-6 -->
+                @endforelse
+            
+        
+                </ul>
+              </div>
+          </div>
+          <!-- END sidebar -->
 
-                        <div class="comment">
-                            <p>No Comment yet. Be the first :)</p>
-                    </div>
-                    </div>
-
-                    @endif
-
-                </div><!-- col-lg-8 col-md-12 -->
-
-            </div><!-- row -->
-
-        </div><!-- container -->
+        </div>
+      </div>
     </section>
 
 
