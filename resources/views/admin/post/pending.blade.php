@@ -9,12 +9,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="block-header">
-            <a class="btn btn-primary waves-effect" href="{{ route('admin.post.create') }}">
-                <i class="material-icons">add</i>
-                <span>Add New Post</span>
-            </a>
-        </div>
+
         <!-- Exportable Table -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

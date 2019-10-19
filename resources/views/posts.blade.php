@@ -13,68 +13,156 @@
 @endpush
 
 @section('content')
-    <div class="slider display-table center-text">
-        <h1 class="title display-table-cell"><b>ALL POSTS</b></h1>
-    </div><!-- slider -->
 
-    <section class="blog-area section">
+
+ <section class="site-section py-sm">
         <div class="container">
+          <div class="row">
+            <div class="col">
+              <h2 class="mt-3">ALL POSTS</h2>
+            </div>
+          </div>
+          <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 main-content">
+              <div class="row">
+        @forelse($posts as $post)
+                <div class="col-md-6">
+                  <a href="{{ route('post.details',$post->slug) }}" class="blog-entry element-animate" data-animate-effect="fadeIn">
+                    <img src="{{ url($post->image) }}" alt="Image placeholder">   </a>
+                    <h2>{{$post->title}}</h2>
+                    <div class="blog-content-body">
+                      <div class="post-meta">
+                        <a href="{{ route('author.profile',$post->user->username) }}" title=""><span class="author mr-2"><img src="{{ url($post->user->image) }}" alt="Colorlib"> {{$post->user->username}}</span>&bullet;</a>
 
-            <div class="row">
-                @forelse($posts as $post)
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card h-100">
-                            <div class="single-post post-style-1">
-
-                                <div class="blog-image"><img src="{{ url($post->image) }}" alt="{{ $post->title }}"></div>
-
-                                <a class="avatar" href="{{ route('author.profile',$post->user->username) }}"><img src="{{ url($post->user->image) }}" alt="Profile Image"></a>
-
-                                <div class="blog-info">
-
-                                    <h4 class="title"><a href="{{ route('post.details',$post->slug) }}"><b>{{ $post->title }}</b></a></h4>
-
-                                    <ul class="post-footer">
-
-                                        <li>
-                                            @guest
-                                                <a href="javascript:void(0);" onclick="toastr.info('To add favorite list. You need to login first.','Info',{
-                                                    closeButton: true,
-                                                    progressBar: true,
-                                                })"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
-                                            @else
-                                                <a href="javascript:void(0);" onclick="document.getElementById('favorite-form-{{ $post->id }}').submit();"
-                                                   class="{{ !Auth::user()->favorite_posts->where('pivot.post_id',$post->id)->count()  == 0 ? 'favorite_posts' : ''}}"><i class="ion-heart"></i>{{ $post->favorite_to_users->count() }}</a>
-
-                                                <form id="favorite-form-{{ $post->id }}" method="POST" action="{{ route('post.favorite',$post->id) }}" style="display: none;">
-                                                    @csrf
-                                                </form>
-                                            @endguest
-
-                                        </li>
-                                        <li><a href="#"><i class="ion-chatbubble"></i>{{ $post->comments->count() }}</a></li>
-                                        <li><a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a></li>
-                                    </ul>
-
-                                </div><!-- blog-info -->
-                            </div><!-- single-post -->
-                        </div><!-- card -->
-                    </div><!-- col-lg-4 col-md-6 -->
-                @empty 
+                        <span class="mr-2">{{$post->created_at}}</span> &bullet;
+                        <br><hr>
+                         <span class="ml-2"><span class="fa fa-heart"></span>{{ $post->favorite_to_users->count() }}</span>
+                         <span class="ml-2"><span class="fa fa-eye"></span>{{ $post->view_count }}</span>
+                        <span class="ml-2"><span class="fa fa-comments"></span>{{ $post->comments->count() }}</span>
+                      </div>
+                     
+                    </div>
+               
+                </div>
+                        @empty
                     <div class="col-lg-12 col-md-12">
                         <div class="card h-100">
                             <div class="single-post post-style-1 p-2">
-                               <strong>No Post Found :(</strong>
+                               <strong>Belum ada berita Tersedia</strong>
                             </div><!-- single-post -->
                         </div><!-- card -->
                     </div><!-- col-lg-4 col-md-6 -->
                 @endforelse
-            </div><!-- row -->
+              </div>
 
-            {{ $posts->links() }}
+              <div class="row mt-5">
+                <div class="col-md-12 text-center">
+                  <nav aria-label="Page navigation" class="text-center">
+                    <ul class="pagination">
+                      <li class="page-item  active"><a class="page-link" href="#">&lt;</a></li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">4</a></li>
+                      <li class="page-item"><a class="page-link" href="#">5</a></li>
+                      <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
 
-        </div><!-- container -->
-    </section><!-- section -->
+
+              
+
+              
+
+            </div>
+
+            <!-- END main-content -->
+
+            <div class="col-md-12 col-lg-4 sidebar">
+             
+              <!-- END sidebar-box -->
+
+              <!-- END sidebar-box -->  
+              <div class="sidebar-box">
+                <h3 class="heading">Popular Posts</h3>
+                <div class="post-entry-sidebar">
+                  <ul>
+                    @
+                    <li>
+                      <a href="">
+                        <img src="images/img_2.jpg" alt="Image placeholder" class="mr-4">
+                        <div class="text">
+                          <h4>How to Find the Video Games of Your Youth</h4>
+                          <div class="post-meta">
+                            <span class="mr-2">March 15, 2018 </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <img src="images/img_4.jpg" alt="Image placeholder" class="mr-4">
+                        <div class="text">
+                          <h4>How to Find the Video Games of Your Youth</h4>
+                          <div class="post-meta">
+                            <span class="mr-2">March 15, 2018 </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <img src="images/img_12.jpg" alt="Image placeholder" class="mr-4">
+                        <div class="text">
+                          <h4>How to Find the Video Games of Your Youth</h4>
+                          <div class="post-meta">
+                            <span class="mr-2">March 15, 2018 </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- END sidebar-box -->
+
+              <div class="sidebar-box">
+                <h3 class="heading">Categories</h3>
+                <ul class="categories">
+                  <li><a href="#">Food <span>(12)</span></a></li>
+                  <li><a href="#">Travel <span>(22)</span></a></li>
+                  <li><a href="#">Lifestyle <span>(37)</span></a></li>
+                  <li><a href="#">Business <span>(42)</span></a></li>
+                  <li><a href="#">Adventure <span>(14)</span></a></li>
+                </ul>
+              </div>
+              <!-- END sidebar-box -->
+
+              <div class="sidebar-box">
+                <h3 class="heading">Tags</h3>
+                <ul class="tags">
+                  <li><a href="#">Travel</a></li>
+                  <li><a href="#">Adventure</a></li>
+                  <li><a href="#">Food</a></li>
+                  <li><a href="#">Lifestyle</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Freelancing</a></li>
+                  <li><a href="#">Travel</a></li>
+                  <li><a href="#">Adventure</a></li>
+                  <li><a href="#">Food</a></li>
+                  <li><a href="#">Lifestyle</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Freelancing</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- END sidebar -->
+
+          </div>
+        </div>
+      </section>
 
 @endsection
 

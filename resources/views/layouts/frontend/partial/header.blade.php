@@ -41,7 +41,7 @@
                   <a class="nav-link active" href="{{route('home')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('home') }}">Posts</a>
+                  <a class="nav-link" href="{{ route('post.index')}}">Posts</a>
                 </li>
       
                 <li class="nav-item">

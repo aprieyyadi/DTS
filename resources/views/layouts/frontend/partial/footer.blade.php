@@ -1,4 +1,4 @@
-      <footer class="site-footer">
+     <footer class="site-footer">
         <div class="container">
           <div class="row mb-5">
             <div class="col-md-4">
@@ -15,36 +15,42 @@
                   <h3>Latest Post</h3>
                   <div class="post-entry-sidebar">
                     <ul>
-                        
                       <li>
-                        <a href=""><img src="" alt=""></a>
+                        <a href="">
+                          <img src="images/img_6.jpg" alt="Image placeholder" class="mr-4">
                           <div class="text">
-                             <h4 class="title"><a href=""><b></b></a></h4>
+                            <h4>How to Find the Video Games of Your Youth</h4>
                             <div class="post-meta">
-                              <ul class="post-footer">
-
-                                     
-                                        <li>
-                                            <a href="#"><i class="ion-chatbubble"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="ion-eye"></i></a>
-                                        </li>
-                                    </ul>
+                              <span class="mr-2">March 15, 2018 </span> &bullet;
+                              <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
                             </div>
                           </div>
                         </a>
                       </li>
-      
-                    <div class="col-lg-12 col-md-12">
-                        <div class="card h-100">
-                            <div class="single-post post-style-1 p-2">
-                               <strong>Tidak ada </strong>
-                            </div><!-- single-post -->
-                        </div><!-- card -->
-                    </div><!-- col-lg-4 col-md-6 -->
-
-     
+                      <li>
+                        <a href="">
+                          <img src="images/img_3.jpg" alt="Image placeholder" class="mr-4">
+                          <div class="text">
+                            <h4>How to Find the Video Games of Your Youth</h4>
+                            <div class="post-meta">
+                              <span class="mr-2">March 15, 2018 </span> &bullet;
+                              <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <img src="images/img_4.jpg" alt="Image placeholder" class="mr-4">
+                          <div class="text">
+                            <h4>How to Find the Video Games of Your Youth</h4>
+                            <div class="post-meta">
+                              <span class="mr-2">March 15, 2018 </span> &bullet;
+                              <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
                     </ul>
                   </div>
                 </div>
