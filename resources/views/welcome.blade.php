@@ -15,7 +15,7 @@
                 <div  class="a-block d-flex align-items-center height-lg" style="background-image: url('{{$post->image}}');">
           
                     <div class="text half-to-full">
-                      <span class="category mb-5">{{ $category->name }}</span>
+                      
                       <div class="post-meta">
                         
                         <span class="author mr-2"><a href="{{ route('author.profile',$post->user->username) }}" title=""><img src="{{ url($post->user->image) }}" alt="Colorlib"> {{$post->user->username}}</span>&bullet;</a>

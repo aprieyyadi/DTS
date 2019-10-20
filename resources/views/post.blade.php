@@ -199,7 +199,7 @@
                 <ul class="categories">
                    @forelse($tags as $tag)
 
-                  <li><a href="{{route('tag.posts',$tag->slug)}}">{{ $tag->name }}<span>{{ $tag->posts->count() }}</span></a></li>
+                  <li><a href="{{route('tag.posts',$tag->slug)}}">{{ $tag->name }}</a></li>
                      @empty
                     <div class="col-lg-12 col-md-12">
                         <div class="card h-100">
