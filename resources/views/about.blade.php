@@ -13,10 +13,23 @@
               <div class="col-md-12">
                 <h2 class="mb-4">ABOUT DTS NEWS</h2>
                 <p class="mb-5"><center><img src="{{url('images/dts.png')}}" width="50%" alt="Image placeholder" ></center></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum minima eveniet recusandae suscipit eum laboriosam fugit amet deleniti iste et. Ad dolores, necessitatibus non saepe tenetur impedit commodi quibusdam natus repellat, exercitationem accusantium perferendis officiis. Laboriosam impedit quia minus pariatur!</p>
-                <p>Dignissimos iste consectetur, nemo magnam nulla suscipit eius quibusdam, quo aperiam quia quae est explicabo nostrum ab aliquid vitae obcaecati tenetur beatae animi fugiat officia id ipsam sint? Obcaecati ea nisi fugit assumenda error totam molestiae saepe fugiat officiis quam?</p>
-                <p>Culpa porro quod doloribus dolore sint. Distinctio facilis ullam voluptas nemo voluptatum saepe repudiandae adipisci officiis, explicabo eaque itaque sed necessitatibus, fuga, ea eius et aliquam dignissimos repellendus impedit pariatur voluptates. Dicta perferendis assumenda, nihil placeat, illum quibusdam. Vel, incidunt?</p>
-                <p>Dolorum blanditiis illum quo quaerat, possimus praesentium perferendis! Quod autem optio nobis, placeat officiis dolorem praesentium odit. Vel, cum, a. Adipisci eligendi eaque laudantium dicta tenetur quod, pariatur sunt sed natus officia fuga accusamus reprehenderit ratione, provident possimus ut voluptatum.</p>
+                <p>Halo Digiers! Kalian tahu tidak kalau pemerintah kita lebih tepatnya Kementerian Komunikasi dan Informatika (Kemenkominfo) mengadakan program pengembangan sumber daya manusia (SDM) sebagai bagian dari program pembangan prioritas nasional.</p>
+                <p>Program pelatihan kompetensi DTS 2019 ditujukan untuk meningkatkan keterampilan (up-skilling) SDM bidang Komunikasi dan Informatika sehingga dapat meningkatkan produktivitas dan daya saing bangsa.</p>
+                <p>Program DTS 2019 secara garis besar dibagi menjadi empat akademi, yaitu:</p>
+                <p><ol>
+                  <li>
+                    Fresh Graduate Academy (FGA) , program pelatihan bagi lulusan D3, D4 dan S1 bidang TIK dan MIPA, terbuka bagi penyandang disabilitas;
+                  </li>
+                  <li>
+                    Vocational School Graduate Academy (VSGA) , program pelatihan bagi lulusan SMK;
+                  </li>
+                  <li>
+                    Coding Teacher Academy (CTA) , program pelatihan bagi para guru yang mengajar bidang TIK pada SMK, SMA, SMALB, dan Madrasah Aliyah (Terbuka bagi Guru PNS dan Non PNS); dan
+                  </li>
+                  <li>
+                    Online Academy (OA) , program pelatihan secara online bagi masyarakat umum termasuk ASN, mahasiswa, dan pelaku industri.
+                  </ol>
+                </ul></p>
               </div>
             </div>
 

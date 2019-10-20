@@ -23,7 +23,7 @@
                         <span class="ml-2"><span class="fa fa-comments"></span> {{ $post->comments->count() }}</span>
                         
                       </div>
-                  <a href="{{ route('category.posts',$category->slug) }}" title="">
+                  <a href="{{ route('post.details',$post->slug) }}" title="">
                         
                     
                       <h3>{{$post->title}}</h3>
