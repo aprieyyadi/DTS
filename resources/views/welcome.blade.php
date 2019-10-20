@@ -10,15 +10,13 @@
             <div class="col-md-12">
 
               <div class="owl-carousel owl-theme home-slider">
-                  @forelse($categories as $category)
                        @forelse($posts as $post)
                 <div class="a-block d-flex align-items-center height-lg" style="background-image: url('{{$post->image}}'); ">
                  
                     <div class="text half-to-full">
-                      <span class="category mb-5">Food</span>
                       <div class="post-meta">
                         
-                        <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib"> {{$post->user->username}}</span>&bullet;
+                        <span class="author mr-2"><img src="{{ url($post->user->image) }}" alt="Colorlib"> {{$post->user->username}}</span>&bullet;
                         <span class="mr-2">{{$post->created_at}} </span> &bullet;
                         <span class="ml-2"><span class="fa fa-comments"></span>{{ $post->comments->count() }} </span>
                         
@@ -31,15 +29,6 @@
 
                   
                 </div>
-                   @empty
-                     <div class="col-lg-12 col-md-12">
-                        <div class="card h-100">
-                            <div class="single-post post-style-1 p-2">
-                               <strong>Tidak ada News</strong>
-                            </div><!-- single-post -->
-                        </div><!-- card -->
-                    </div><!-- col-lg-4 col-md-6 -->
-                @endforelse
                    @empty
                      <div class="col-lg-12 col-md-12">
                         <div class="card h-100">
