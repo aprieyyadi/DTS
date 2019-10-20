@@ -18,7 +18,7 @@
 							<tr>
 								<td>Nama</td>
 								<td>Apriyadi</td>
-								<td rowspan="10" align="center"><img src="" width="210" height="313"></td>
+								<td rowspan="10" align="center"><img src="{{url('images/apriyadi.jpeg')}}" width="210" height="313"></td>
 							</tr>
 							<tr>
 								<td>Jurusan</td>
@@ -30,7 +30,7 @@
 							</tr>
 							<tr>
 								<td>Tempat/Tanggal Lahir</td>
-								<td></td>
+								<td>Bekasi 29-04-1997</td>
 							</tr>
 							<tr>
 								<td>Perguruan Tinggi</td>
@@ -38,19 +38,19 @@
 							</tr>
 							<tr>
 								<td>Alamat</td>
-								<td></td>
+								<td>Perumahan Megaregency , Serang Baru,Kabupaten Bekasi</td>
 							</tr>
 							<tr>
 								<td>Hobi</td>
-								<td>Ngoding</td>
+								<td>Push Rank</td>
 							</tr>
 						</table>
 						<br>
 						<table width="745" cellspacing="0" cellpadding="5" align="center">
 							<tr>
 								<td>Nama</td>
-								<td>Daniel</td>
-								<td rowspan="10" align="center"><img src="" width="210" height="313"></td>
+								<td>Daniel Chandra</td>
+								<td rowspan="10" align="center"><img src="{{url('images/daniel.jpeg')}}" width="210" height="313"></td>
 							</tr>
 							<tr>
 								<td>Jurusan</td>
@@ -62,7 +62,7 @@
 							</tr>
 							<tr>
 								<td>Tempat/Tanggal Lahir</td>
-								<td></td>
+								<td>Jakarta 17-08-1997</td>
 							</tr>
 							<tr>
 								<td>Perguruan Tinggi</td>
@@ -70,11 +70,11 @@
 							</tr>
 							<tr>
 								<td>Alamat</td>
-								<td></td>
+								<td>Jl.Swadaya Raya,Bekasi Timur</td>
 							</tr>
 							<tr>
 								<td>Hobi</td>
-								<td>Ngoding</td>
+								<td>Gaming</td>
 							</tr>
 						</table>
 						<br>
@@ -82,7 +82,7 @@
 							<tr>
 								<td>Nama</td>
 								<td>Leska</td>
-								<td rowspan="10" align="center"><img src="" width="210" height="313"></td>
+								<td rowspan="10" align="center"><img src="{{url('images/leska.jpeg')}}" width="210" height="313"></td>
 							</tr>
 							<tr>
 								<td>Jurusan</td>
@@ -94,7 +94,7 @@
 							</tr>
 							<tr>
 								<td>Tempat/Tanggal Lahir</td>
-								<td></td>
+								<td>Jakarta 27-11-1998</td>
 							</tr>
 							<tr>
 								<td>Perguruan Tinggi</td>
@@ -102,11 +102,11 @@
 							</tr>
 							<tr>
 								<td>Alamat</td>
-								<td></td>
+								<td>Duren Jaya</td>
 							</tr>
 							<tr>
 								<td>Hobi</td>
-								<td>Ngoding</td>
+								<td>Menyanyi</td>
 							</tr>
 						</table>
 						<br>
@@ -114,7 +114,7 @@
 							<tr>
 								<td>Nama</td>
 								<td>Rizky</td>
-								<td rowspan="10" align="center"><img src="" width="210" height="313"></td>
+								<td rowspan="10" align="center"><img src="{{url('images/rizky.jpeg')}}" width="210" height="313"></td>
 							</tr>
 							<tr>
 								<td>Jurusan</td>
