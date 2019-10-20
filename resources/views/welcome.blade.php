@@ -4,36 +4,34 @@
 
 @section('content')
 
-      <section class="site-section pt-5 pb-5">
+  <section class="site-section pt-5 pb-5">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
 
               <div class="owl-carousel owl-theme home-slider">
-              @forelse($categories as $category)
+                  @forelse($categories as $category)
                        @forelse($posts as $post)
-                <div  class="a-block d-flex align-items-center height-lg" style="background-image: url('{{$post->image}}');">
-          
+                <div class="a-block d-flex align-items-center height-lg" style="background-image: url('{{$post->image}}'); ">
+                 
                     <div class="text half-to-full">
-                      
+                      <span class="category mb-5">Food</span>
                       <div class="post-meta">
                         
-                        <span class="author mr-2"><a href="{{ route('author.profile',$post->user->username) }}" title=""><img src="{{ url($post->user->image) }}" alt="Colorlib"> {{$post->user->username}}</span>&bullet;</a>
-                        <span class="mr-2">{{$post->created_at}}</span> &bullet;
-                        <span class="ml-2"><span class="fa fa-comments"></span> {{ $post->comments->count() }}</span>
+                        <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib"> {{$post->user->username}}</span>&bullet;
+                        <span class="mr-2">{{$post->created_at}} </span> &bullet;
+                        <span class="ml-2"><span class="fa fa-comments"></span>{{ $post->comments->count() }} </span>
                         
                       </div>
-                  <a href="{{ route('post.details',$post->slug) }}" title="">
-                        
-                    
+                     <a href="{{ route('post.details',$post->slug) }}" title="">
                       <h3>{{$post->title}}</h3>
                       <p>{!! substr(html_entity_decode($post->body),0,300) !!} ....</p>
-                  </a>
+                      </a>
                     </div>
-             
+
+                  
                 </div>
-   
-                               @empty
+                   @empty
                      <div class="col-lg-12 col-md-12">
                         <div class="card h-100">
                             <div class="single-post post-style-1 p-2">
@@ -42,7 +40,7 @@
                         </div><!-- card -->
                     </div><!-- col-lg-4 col-md-6 -->
                 @endforelse
-                                               @empty
+                   @empty
                      <div class="col-lg-12 col-md-12">
                         <div class="card h-100">
                             <div class="single-post post-style-1 p-2">
@@ -51,7 +49,7 @@
                         </div><!-- card -->
                     </div><!-- col-lg-4 col-md-6 -->
                 @endforelse
- 
+  
               </div>
               
             </div>
