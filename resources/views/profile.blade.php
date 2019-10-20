@@ -14,6 +14,7 @@
 @section('content')
     <div class="slider display-table center-text">
         <h1 class="title display-table-cell"><b>{{ $author->name }}</b></h1>
+
     </div><!-- slider -->
 
     <section class="blog-area section">
@@ -29,9 +30,11 @@
                                 <div class="card h-100">
                                     <div class="single-post post-style-1">
 
-                                        <div class="blog-image"><img src="{{ url($post->image) }}" width="330" height="313" alt="{{ $post->title }}"></div>
+                                        <div class="blog-image"><img src="{{ url($post->image) }}" width="330" height="313" alt="{{ $post->title }}"></div><br><hr>
+
 
                                         <a class="avatar" href="{{ route('author.profile',$post->user->username) }}"><img src="{{ url($post->user->image) }}" width="50" height="55" alt="Profile Image"></a>
+                                        <span class="mr-2">{{$post->created_at}} </span> &bullet;<br><hr>
 
                                         <div class="blog-info">
 
@@ -84,7 +87,12 @@
                     <div class="single-post info-area ">
 
                         <div class="about-area">
+
                             <h4 class="title"><b>ABOUT AUTHOR</b></h4>
+                            @foreach($posts as $post)
+                             <img src="{{ url($post->user->image) }}" width="100" height="150" alt="Profile Image">
+                            @break
+                         @endforeach
                             <p>{{ $author->name }}</p>
                             <p>{{ $author->about }}</p>
                             <strong>Author Since: {{ date('d M Y ', $author->created_at)}}</strong><br>
