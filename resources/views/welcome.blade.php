@@ -8,10 +8,10 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-  @forelse($categories as $category)
-                       @forelse($posts as $post)
+
               <div class="owl-carousel owl-theme home-slider">
-            
+              @forelse($categories as $category)
+                       @forelse($posts as $post)
                 <div  class="a-block d-flex align-items-center height-lg" style="background-image: url('{{$post->image}}');">
           
                     <div class="text half-to-full">
