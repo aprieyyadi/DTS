@@ -187,7 +187,7 @@
                 <ul class="categories">
 
                 @forelse($categories as $category)
-                  <li><a href="{{route('category.posts',$category->slug)}}">{{ $category->name }}<span><?= count($categories) ?></span></a></li>
+                  <li><a href="{{route('category.posts',$category->slug)}}">{{ $category->name }}<span>{{ $category->posts->count() }}</span></a></li>
                                   @empty
                     <div class="col-lg-12 col-md-12">
                         <div class="card h-100">
@@ -205,10 +205,11 @@
 
               <div class="sidebar-box">
                 <h3 class="heading">Tags</h3>
-                <ul class="tags">
+                <ul class="categories">
                    @forelse($tags as $tag)
 
-                  <li><a href="{{route('tag.posts',$tag->slug)}}">{{ $tag->name }}</a></li>
+           
+                   <li><a href="{{route('tag.posts',$tag->slug)}}">{{ $tag->name }}<span>{{ $tag->posts->count() }}</span></a></li>
                      @empty
                     <div class="col-lg-12 col-md-12">
                         <div class="card h-100">
