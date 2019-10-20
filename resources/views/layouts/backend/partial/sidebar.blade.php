@@ -167,13 +167,11 @@
     <!-- Footer -->
     <div class="legal">
         <div class="copyright">
-            &copy; 2017 - {{ date("Y") }} All rights reserved. <br>
-            <strong> Developed &amp; <i class="far fa-heart"></i> by </strong>
-                        <a href="https://www.youtube.com/channel/UCwbVAlvrsD2Tpx93bleNbOA" target="_blank">Programming kit</a>.
+            &copy; {{ date("Y") }} All rights reserved. <br>
+            <strong> Developed<i class="far fa-heart"></i> by </strong>
+                        <a href="https://www.youtube.com/channel/UCwbVAlvrsD2Tpx93bleNbOA" target="_blank">DTS KEL - 2</a>.
         </div>
-        <div class="version">
-            <b>Version: </b> 1.0.5
-        </div>
+        
     </div>
     <!-- #Footer -->
 </aside>
