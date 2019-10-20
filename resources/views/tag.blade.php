@@ -26,9 +26,10 @@
                             <div class="card h-100">
                                 <div class="single-post post-style-1">
 
-                                    <div class="blog-image"><img src="{{ Storage::disk('public')->url('post/'.$post->image) }}" alt="{{ $post->title }}"></div>
+                                    <div class="blog-image"><img src="{{ url($post->image) }}" width="330" height="313" alt="{{ $post->title }}"></div><br><hr>
 
-                                    <a class="avatar" href="{{ route('author.profile',$post->user->username) }}"><img src="{{ Storage::disk('public')->url('profile/'.$post->user->image) }}" alt="Profile Image"></a>
+                                    <a class="avatar" href="{{ route('author.profile',$post->user->username) }}"><img src="{{ url($post->user->image) }}" width="50" height="55" alt="Profile Image"></a>
+                                    <span class="mr-2">{{$post->created_at}} </span> &bullet;<br><hr>
 
                                     <div class="blog-info">
 
