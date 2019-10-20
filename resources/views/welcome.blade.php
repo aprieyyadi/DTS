@@ -17,7 +17,7 @@
                       
                       <div class="post-meta">
                         
-                          <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib"> {{$post->user->username}}</span>&bullet;
+                          <span class="author mr-2"><img src="{{$post->user->image}}" alt="Colorlib"> {{$post->user->username}}</span>&bullet;
                         <span class="mr-2">{{$post->created_at}} </span> &bullet;
                         <span class="ml-2"><span class="fa fa-comments"></span>{{ $post->comments->count() }} </span>
                         
