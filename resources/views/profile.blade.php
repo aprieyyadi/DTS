@@ -29,9 +29,9 @@
                                 <div class="card h-100">
                                     <div class="single-post post-style-1">
 
-                                        <div class="blog-image"><img src="{{ url($post->image) }}" alt="{{ $post->title }}"></div>
+                                        <div class="blog-image"><img src="{{ url($post->image) }}" width="330" height="313" alt="{{ $post->title }}"></div>
 
-                                        <a class="avatar" href="{{ route('author.profile',$post->user->username) }}"><img src="{{ url($post->user->image) }}" alt="Profile Image"></a>
+                                        <a class="avatar" href="{{ route('author.profile',$post->user->username) }}"><img src="{{ url($post->user->image) }}" width="50" height="55" alt="Profile Image"></a>
 
                                         <div class="blog-info">
 
@@ -94,8 +94,8 @@
 
                         <div class="about-area">
                             <h4 class="title"><b>ABOUT AUTHOR</b></h4>
-                            <p>{{ $author->name }}</p><br>
-                            <p>{{ $author->about }}</p><br>
+                            <p>{{ $author->name }}</p>
+                            <p>{{ $author->about }}</p>
                             <strong>Author Since: {{ date('d M Y ', $author->created_at)}}</strong><br>
                             <strong>Total Posts : {{ $author->posts->count() }}</strong>
                         </div>
