@@ -37,9 +37,6 @@
 
                                             <h4 class="title"><a href="{{ route('post.details',$post->slug) }}"><b>{{ $post->title }}</b></a></h4>
 
-                                            <ul class="post-footer">
-
-                                                <li>
                                                     @guest
                                                         <a href="javascript:void(0);" onclick="toastr.info('To add favorite list. You need to login first.','Info',{
                                                     closeButton: true,
@@ -53,15 +50,9 @@
                                                             @csrf
                                                         </form>
                                                     @endguest
-
-                                                </li>
-                                                <li>
                                                     <a href="#"><i class="ion-chatbubble"></i>{{ $post->comments->count() }}</a>
-                                                </li>
-                                                <li>
+
                                                     <a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a>
-                                                </li>
-                                            </ul>
 
                                         </div><!-- blog-info -->
                                     </div><!-- single-post -->
