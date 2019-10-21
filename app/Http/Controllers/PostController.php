@@ -14,10 +14,16 @@ class PostController extends Controller
 
     public function index()
     {
+        $popular_posts = Post::withCount('comments')
+                            ->withCount('favorite_to_users')
+                            ->orderBy('view_count','desc')
+                            ->orderBy('comments_count','desc')
+                            ->orderBy('favorite_to_users_count','desc')
+                            ->take(5)->get();
         $categories = Category::all();
          $tags      =  Tag::all();
         $posts = Post::latest()->approved()->published()->paginate(6);
-        return view('posts',compact('posts','categories','tags'));
+        return view('posts',compact('posts','categories','tags','popular_posts'));
     }
     public function details($slug)
     {

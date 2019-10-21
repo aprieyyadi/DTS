@@ -22,9 +22,15 @@ class AboutController extends Controller
      */
     public function index()
     {
+        $popular_posts = Post::withCount('comments')
+                            ->withCount('favorite_to_users')
+                            ->orderBy('view_count','desc')
+                            ->orderBy('comments_count','desc')
+                            ->orderBy('favorite_to_users_count','desc')
+                            ->take(5)->get();
         $tags      =  Tag::all();
         $categories = Category::all();
         $posts = Post::latest()->approved()->published()->take(6)->get();
-        return view('about',compact('categories','posts','tags'));
+        return view('about',compact('categories','posts','tags','popular_posts'));
     }
 }
