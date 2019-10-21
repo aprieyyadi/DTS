@@ -28,4 +28,4 @@ maka akan muncul url, url tersebut copy dan paste pada browser. Maka akan terbuk
 
 # Fitur
 1. Home / Halaman Utama
-	![alt text](https://github.com/aprieyyadi/DTS/public/images/dts.png)
+	![dts](https://user-images.githubusercontent.com/56539329/67201637-e212c800-f430-11e9-9b60-1959afddb2b1.png)
