@@ -66,19 +66,22 @@
              
               <!-- END sidebar-box -->
 
-              <!-- END sidebar-box -->  
               <div class="sidebar-box">
                 <h3 class="heading">Popular Posts</h3>
                 <div class="post-entry-sidebar">
                   <ul>
-                           @forelse($posts as $post)
+                           @forelse($popular_posts as $key=>$post)
                      <li>
                       <a href="{{ route('post.details',$post->slug) }}">
                         <img src="{{ url($post->image) }}" alt="Image placeholder" class="mr-4">
                         <div class="text">
-                          <h4>{{ $post->title }}</h4>
+                          <h4>{{ str_limit($post->title,'20') }}</h4>
+                            <span class="author mr-2"><img src="{{$post->user->image}}"> {{$post->user->username}}</span>&bullet;
                           <div class="post-meta">
-                            <span class="mr-2">{{$post->created_at}} </span>
+                            <span class="mr-2">{{$post->created_at}} </span><br>
+                              <i class="fa fa-eye">{{ $post->view_count }}</i>
+                               <i class="fa fa-heart">{{ $post->favorite_to_users_count }}</i>
+                               <i class="fa fa-comments">{{ $post->comments_count }}</i>
                           </div>
                         </div>
                       </a>
