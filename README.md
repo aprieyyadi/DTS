@@ -14,18 +14,34 @@ Website ini dibangun dengan menggunakan sebagai berikut :
 1. Tahap untuk mengintal Laravel dalam windows, pertama buka command prompt kemudian dimulai dengan menginstall composer terlebih dahulu dengan download filenya dan jalankan composer.exe.
 2. Kemudian ketikkan perintah berikut untuk menginstall laravel
 
-composer create-project --prefer-dist laravel/laravel DTS
+		composer create-project --prefer-dist laravel/laravel DTS
 
-Keterangan	:
---prefer-dist digunakan untuk versi laravel yang direferensikan/stabil
-DTS adalah nama folder yang akan kita buat 
+	Keterangan	:
+	--prefer-dist digunakan untuk versi laravel yang direferensikan/stabil
+	DTS adalah nama folder yang akan kita buat 
 
 3. Setelah proses folder project telah dibuat, langkah selanjutnya buka folder tersebut lalu buka command prompt dan masuk kedalan folder project itu. Dalam command prompt ketik
 
-php artisan serve
+		php artisan serve
 
-maka akan muncul url, url tersebut copy dan paste pada browser. Maka akan terbuka Halaman Laravel dan proses instalasi telah berhasil.
+	maka akan muncul url, url tersebut copy dan paste pada browser. Maka akan terbuka Halaman Laravel dan proses instalasi telah berhasil.
 
 # Fitur
 1. Home / Halaman Utama
+
 	![dts](https://user-images.githubusercontent.com/56539329/67201637-e212c800-f430-11e9-9b60-1959afddb2b1.png)
+
+
+
+# Alur Sistem dengan Struktur Data
+1. Halaman User
+	
+	![Annotation 2019-10-21 190245](https://user-images.githubusercontent.com/56539329/67204709-569d3500-f438-11e9-9532-746163176cd0.png)
+
+2. Halaman Author
+
+	![Annotation 2019-10-21 191818](https://user-images.githubusercontent.com/56539329/67204816-8ba98780-f438-11e9-9be9-ba9936b857ac.png)
+
+3. Halaman Admin
+	
+	![Annotation 2019-10-21 192138](https://user-images.githubusercontent.com/56539329/67204855-9cf29400-f438-11e9-90da-7ff6c0c2c92c.png)
