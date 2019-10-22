@@ -60,43 +60,40 @@ Website ini dibangun dengan menggunakan sebagai berikut :
 
 # Fitur
 1. Pada Halaman User
-
-	HOME / Halaman Utama
-	POSTS
-	ABOUT
-	DTS TEAM
-	LOGIN
-	REGISTER
+- HOME / Halaman Utama
+- POSTS
+- ABOUT
+- DTS TEAM
+- LOGIN
+- REGISTER
 
 	![Annotation 2019-10-22 134535](https://user-images.githubusercontent.com/56539329/67263416-4afe4c80-f4d2-11e9-83b5-1ecb9d48bfd0.png)
 
 2. Pada Halaman Admin
-	
-	Main Navigations
-		Dashboard
-		Tag
-		Category
-		Posts
-		Pending Posts
-		Favorite Posts
-		Comments
-		Author
-		Subscribers
-	System
-		Settings
-		Logout
+- Main Navigations
+	- Dashboard
+	- Tag
+	- Category
+	- Posts
+	- Pending Posts
+	- Favorite Posts
+	- Comments
+	- Author
+	- Subscribers
+- System
+	- Settings
+	- Logout
 
 	![Annotation 2019-10-22 135931](https://user-images.githubusercontent.com/56539329/67264073-391da900-f4d4-11e9-8b30-db3755309948.png)
 
 3. Pada Halaman Author
-	
-	Main Navigations
-		Dashboard
-		Favorite Posts
-		Comments
-	System
-		Settings
-		Logout
+- Main Navigations
+	- Dashboard
+	- Favorite Posts
+	- Comments
+- System
+	- Settings
+	- Logout
 
 	![Annotation 2019-10-22 135842](https://user-images.githubusercontent.com/56539329/67264103-49ce1f00-f4d4-11e9-9ac2-4278b0fc3eca.png)
 
@@ -115,103 +112,103 @@ Website ini dibangun dengan menggunakan sebagai berikut :
 
 # Data Dictionary
 1. Tabel categories
-	id int(10) primary key
-	name varchar(191)
-	slug varchar(191)
-	image varchar(191)
-	created_at timestamp
-	updated_at timestamp
+	- id int(10) primary key
+	- name varchar(191)
+	- slug varchar(191)
+	- image varchar(191)
+	- created_at timestamp
+	- updated_at timestamp
 
 2. Tabel category_post
-	id int(10) primary key
-	post_id int(11)
-	category int(11)
-	created_at timestamp
-	updated_at timestamp
+	- id int(10) primary key
+	- post_id int(11)
+	- category int(11)
+	- created_at timestamp
+	- updated_at timestamp
 
 3. Tabel comments
-	id int(10) primary key
-	post_id int(10)
-	user_id int(10)
-	comment text
-	created_at timestamp
-	updated_at timestamp
+	- id int(10) primary key
+	- post_id int(10)
+	- user_id int(10)
+	- comment text
+	- created_at timestamp
+	- updated_at timestamp
 
 4. Tabel jobs
-	id bigint(20)
-	queue varchar(191)
-	payload longtext
-	attempts tinyint(3)
-	reserved_at int(10)
-	available_at int(10)
-	created_at int(10)
+	- id bigint(20)
+	- queue varchar(191)
+	- payload longtext
+	- attempts tinyint(3)
+	- reserved_at int(10)
+	- available_at int(10)
+	- created_at int(10)
 
 5. Tabel migrations
-	id int(10) primary key
-	migration varchar(191)
-	batch int(11)
+	- id int(10) primary key
+	- migration varchar(191)
+	- batch int(11)
 
 6. Tabel password_resets
-	email varchar(191)
-	token varchar(191)
-	created_at timestamp
+	- email varchar(191)
+	- token varchar(191)
+	- created_at timestamp
 
 7. Tabel posts
-	id int(10) primary key
-	user_id int(10)
-	title varchar(191)
-	slug varchar(191)
-	image varchar(191)
-	body text
-	view_count int(11)
-	status tinyint(1)
-	is_approved tinyint(1)
-	created_at timestamp
-	updated_at timestamp
+	- id int(10) primary key
+	- user_id int(10)
+	- title varchar(191)
+	- slug varchar(191)
+	- image varchar(191)
+	- body text
+	- view_count int(11)
+	- status tinyint(1)
+	- is_approved tinyint(1)
+	- created_at timestamp
+	- updated_at timestamp
 
 8. Tabel post_tag
-	id int(10) primary key
-	post_id int(11)
-	tag_id int(11)
-	created_at timestamp
-	updated_at timestamp
+	- id int(10) primary key
+	- post_id int(11)
+	- tag_id int(11)
+	- created_at timestamp
+	- updated_at timestamp
 
 9. Tabel post_user
-	id int(10) primary key
-	post_id int(10)
-	user_id int(11)
-	created_at timestamp
-	updated_at timestamp
+	- id int(10) primary key
+	- post_id int(10)
+	- user_id int(11)
+	- created_at timestamp
+	- updated_at timestamp
 
 10. Tabel roles
-	id int(10) primary key
-	name varchar(191)
-	slug varchar(191)
-	created_at timestamp
-	updated_at timestamp
+	- id int(10) primary key
+	- name varchar(191)
+	- slug varchar(191)
+	- created_at timestamp
+	- updated_at timestamp
 
 11. Tabel subscribers
-	id int(10)
-	email varchar(191)
-	created_at timestamp
-	updated_at timestamp
+	- id int(10)
+	- email varchar(191)
+	- created_at timestamp
+	- updated_at timestamp
 
 12. Tabel tags
-	id int(10) primary key
-	name varchar(191)
-	slug varchar(191)
-	created_at timestamp
-	updated_at timestamp
+	- id int(10) primary key
+	- name varchar(191)
+	- slug varchar(191)
+	- created_at timestamp
+	- updated_at timestamp
 
 13. Tabel users
-	id int(10) primary key
-	role_id int(11)
-	name varchar(191)
-	username varchar(191)
-	email varchar(191)
-	password varchar(191)
-	image varchar(191)
-	about text
-	remember_token varchar(100)
-	created_at timestamp
-	updated_at timestamp
+	- id int(10) primary key
+	- role_id int(11)
+	- name varchar(191)
+	- username varchar(191)
+	- email varchar(191)
+	- password varchar(191)
+	- image varchar(191)
+	- about text
+	- remember_token varchar(100)
+	- created_at timestamp
+	- updated_at timestamp
